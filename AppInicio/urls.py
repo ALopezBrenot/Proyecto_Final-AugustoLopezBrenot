@@ -27,4 +27,7 @@ urlpatterns = [
     path('practicas-editar/<pk>', PracticasUpdate.as_view(), name='practicas-editar'),
     path('practicas-eliminar/<pk>', PracticasDelete.as_view(), name='practicas-eliminar'),
 
+    #Path para Login / Logout
+    # path('login', views.login_request, name='Login'),
+
 ]

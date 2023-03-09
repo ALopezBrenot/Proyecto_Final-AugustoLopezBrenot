@@ -8,6 +8,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
 
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, logout, authenticate
+
 # Create your views here.
 
 # Vista inicio
@@ -95,3 +98,7 @@ class PracticasDelete(DeleteView):
     model = Practica
     template_name = 'AppInicio/practicas-eliminar.html'
     success_url = reverse_lazy('inicio')
+
+# Views para login
+
+#
