@@ -12,5 +12,19 @@ urlpatterns = [
     path('docentes-nuevo/', DocentesCreate.as_view(), name='docentes-nuevo'),
     path('docentes-editar/<pk>', DocentesUpdate.as_view(), name='docentes-editar'),
     path('docentes-eliminar/<pk>', DocentesDelete.as_view(), name='docentes-eliminar'),
-    
+
+    # Urls del modelo Alumnos
+    path('alumnos-list/', AlumnosLista.as_view(), name='alumnos-list'),
+    path('alumnos-detalle/<pk>', AlumnosDetail.as_view(), name='alumnos-detalle'),
+    path('alumnos-nuevo/', AlumnosCreate.as_view(), name='alumnos-nuevo'),
+    path('alumnos-editar/<pk>', AlumnosUpdate.as_view(), name='alumnos-editar'),
+    path('alumnos-eliminar/<pk>', AlumnosDelete.as_view(), name='alumnos-eliminar'),
+
+    # Urls del modelo Prácticas
+    path('practicas-list/', PracticasLista.as_view(), name='practicas-list'),
+    path('practicas-detalle/<pk>', PracticasDetail.as_view(), name='practicas-detalle'),
+    path('practicas-nuevo/', PracticasCreate.as_view(), name='practicas-nuevo'),
+    path('practicas-editar/<pk>', PracticasUpdate.as_view(), name='practicas-editar'),
+    path('practicas-eliminar/<pk>', PracticasDelete.as_view(), name='practicas-eliminar'),
+
 ]

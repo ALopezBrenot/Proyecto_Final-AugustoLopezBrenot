@@ -1,0 +1,34 @@
+{% extends 'AppInicio/padre.html' %}
+
+{% block title %} Listado de Alumnos {% endblock %}
+
+{% block contenido %}
+
+<section class="features-icons bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Listado de Alumnos</h1>
+                
+                <ul>
+                    {% for alumno in object_list %}
+                    <li>
+                        <p>Nombre: {{alumno.nombre}} | Apellido: {{alumno.apellido}} </p>
+                        <p>
+                            <a href="{% url 'alumnos-detalle' alumno.id %}">Ver |</a>
+                            <a href="{% url 'alumnos-editar' alumno.id %}">Editar |</a>
+                            <a href="{% url 'alumnos-eliminar' alumno.id %}">Eliminar |</a>
+                        </p>
+                    </li>
+                    {% endfor %}
+                    <p>
+                        <a href="{% url 'alumnos-nuevo' %}">Crear un nuevo alumno</a>
+                    </p>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

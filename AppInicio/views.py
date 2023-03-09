@@ -41,3 +41,57 @@ class DocentesDelete(DeleteView):
     model = Docente
     template_name = 'AppInicio/docentes-eliminar.html'
     success_url = reverse_lazy('inicio')
+
+# Views CRUD Alumnos:
+
+class AlumnosLista(ListView):
+    model = Alumno
+    template_name = 'AppInicio/alumnos-list.html'
+
+class AlumnosDetail(DetailView):
+    model = Alumno
+    template_name ='AppInicio/alumnos-detalle.html'
+
+class AlumnosCreate(CreateView):
+    model = Alumno
+    template_name = 'AppInicio/alumnos-nuevo.html'
+    success_url = reverse_lazy('inicio')
+    fields = ['nombre', 'apellido', 'curso', 'mail', 'DNI', 'fecha_nacimiento']
+
+class AlumnosUpdate(UpdateView):
+    model = Alumno
+    template_name = 'AppInicio/alumnos-nuevo.html'
+    success_url = reverse_lazy('inicio')
+    fields = ['nombre', 'apellido', 'curso', 'mail', 'DNI', 'fecha_nacimiento']
+
+class AlumnosDelete(DeleteView):
+    model = Alumno
+    template_name = 'AppInicio/alumnos-eliminar.html'
+    success_url = reverse_lazy('inicio')
+
+# Views CRUD Práctica
+
+class PracticasLista(ListView):
+    model = Practica
+    template_name = 'AppInicio/practicas-list.html'
+
+class PracticasDetail(DetailView):
+    model = Practica
+    template_name ='AppInicio/practicas-detalle.html'
+
+class PracticasCreate(CreateView):
+    model = Practica
+    template_name = 'AppInicio/practicas-nuevo.html'
+    success_url = reverse_lazy('inicio')
+    fields = ['nombre', 'materia', 'curso', 'fecha']
+
+class PracticasUpdate(UpdateView):
+    model = Practica
+    template_name = 'AppInicio/practicas-nuevo.html'
+    success_url = reverse_lazy('inicio')
+    fields = ['nombre', 'materia', 'curso', 'fecha']
+    
+class PracticasDelete(DeleteView):
+    model = Practica
+    template_name = 'AppInicio/practicas-eliminar.html'
+    success_url = reverse_lazy('inicio')
