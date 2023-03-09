@@ -1,0 +1,25 @@
+{% extends 'AppPosts/padre.html' %}
+
+{% block title %} Eliminar Posteo {% endblock %}
+
+{% block contenido %}
+
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Eliminar posteo</h1>
+                
+                <form method="POST"">
+                {% csrf_token %}
+                <p>Se eliminará el posteo {{object}}</p>
+
+                <input type="submit" value="Confirmar">
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

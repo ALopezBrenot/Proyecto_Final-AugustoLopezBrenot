@@ -7,3 +7,6 @@ class Post(models.Model):
     fecha = models.DateField()
     usuario = models.CharField(max_length=40)
     contenido = models.CharField(max_length=300)
+
+    def __str__(self):
+        return ('Post: ' + self.nombre)
