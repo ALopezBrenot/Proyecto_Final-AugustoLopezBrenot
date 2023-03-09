@@ -1,0 +1,34 @@
+{% extends 'AppInicio/padre.html' %}
+
+{% block title %} Listado de Docentes {% endblock %}
+
+{% block contenido %}
+
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Listado de Docentes</h1>
+                
+                <ul>
+                    {% for docente in object_list %}
+                    <li>
+                        <p>Nombre: {{docente.nombre}} | Apellido: {{docente.apellido}} </p>
+                        <p>
+                            <a href="{% url 'docentes-detalle' docente.id %}">Ver |</a>
+                            <a href="{% url 'docentes-editar' docente.id %}">Editar |</a>
+                            <a href="{% url 'docentes-eliminar' docente.id %}">Eliminar |</a>
+                        </p>
+                    </li>
+                    {% endfor %}
+                    <p>
+                        <a href="{% url 'docentes-nuevo' %}">Crear un nuevo docente</a>
+                    </p>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

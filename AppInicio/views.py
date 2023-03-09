@@ -14,22 +14,6 @@ from django.urls import reverse, reverse_lazy
 def Inicio (request):
     return render(request, 'AppInicio/inicio.html')
 
-# Vistas para la búsqueda de clases en la página de inicio
-
-def busqueda_clase(request):
-    return render(request, 'AppInicio/inicio.html')
-
-def buscar(request):
-    if request.GET['fecha']:
-        mi_fecha = request.GET['fecha']
-        resultado = Practica.objects.filter(fecha__icontains = mi_fecha)
-
-        return render(request, 'AppInicio/inicio.html', {'clase':resultado , 'fecha': mi_fecha})
-    
-    else:
-        respuesta = 'No se encontraron clases en esa fecha'
-
-    return HttpResponse (respuesta)
 
 # Views CRUD Docentes: (Vistas basadas en clases)
 

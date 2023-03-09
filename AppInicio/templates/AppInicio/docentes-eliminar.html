@@ -1,6 +1,6 @@
 {% extends 'AppInicio/padre.html' %}
 
-{% block title %} Docentes Detalle {% endblock %}
+{% block title %} Eliminar Docente {% endblock %}
 
 {% block contenido %}
 
@@ -8,14 +8,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Página de detalles del docente</h1>                    
+                <h1>Eliminar Docente</h1>                    
 
             </div>
         </div>
     </div>
 </section>
 
-{% endblock %} #CAMBIARRRRRRRRRRRRRRRRRRRRRRR
+{% endblock %}
 
 {% block buscar %}
 
@@ -24,14 +24,12 @@
         <div class="row">
             <div class="col-lg-12">
                 
-                <p>Nombre: {{docente.nombre}}</p>
-                <p>Apellido: {{docente.apellido}}</p>
-                <p>Materia: {{docente.materia}}</p>
-                <p>Mail: {{docente.mail}}</p>
-                <p>DNI: {{docente.DNI}}</p>
-                <p>
-                    <a href="{% url 'inicio' %}">Regresar a inicio</a>
-                </p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>Se eliminará el docente {{object}}</p>
+
+                    <input type="submit" value="Confirmar">
+                </form>
 
             </div>
         </div>
