@@ -38,3 +38,14 @@ class PostsDelete(LoginRequiredMixin, DeleteView):
     model = Post
     template_name = 'AppPosts/posts-eliminar.html'
     success_url = reverse_lazy('inicio')
+
+
+# Vista para página aun no disponible
+
+def no_disponible(request):
+    return render(request, 'AppPosts/no-disponible.html')
+
+# Vista para about-me
+
+def about_me(request):
+    return render(request, 'AppPosts/about-me.html')

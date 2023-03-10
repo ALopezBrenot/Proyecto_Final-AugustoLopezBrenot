@@ -142,4 +142,3 @@ def register(request):
         form = MyUserCreationForm()
 
     return render(request, 'AppInicio/registro.html', {'form': form})
-
