@@ -31,6 +31,6 @@ urlpatterns = [
     #Path para Login / Logout
     path('login/', views.login_request, name='login'),
     path('registro/', views.register, name='registrar'),
-    path('logout/', LogoutView.as_view(template_name= 'AppInicio/logout.html'), name='logout')
-
+    path('logout/', LogoutView.as_view(template_name= 'AppInicio/logout.html'), name='logout'),
+    path('editar-perfil/', editar_perfil, name='editar-perfil'),
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from AppInicio.models import *
-from AppInicio.forms import MyUserCreationForm
+from AppInicio.forms import MyUserCreationForm, UserEditForm
 
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -12,6 +12,9 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -142,3 +145,32 @@ def register(request):
         form = MyUserCreationForm()
 
     return render(request, 'AppInicio/registro.html', {'form': form})
+
+# Vista para editar perfiles
+
+@login_required
+def editar_perfil(request):
+    usuario = User.objects.get(username=request.user)
+
+    if request.method == 'POST':
+        mi_formulario = UserEditForm(request.POST)
+
+        if mi_formulario.is_valid():
+            informacion = mi_formulario.cleaned_data
+
+            usuario.username = informacion['username']
+            usuario.email = informacion['email']
+            usuario.first_name = informacion['first_name']
+            usuario.last_name = informacion['last_name']
+            usuario.save()
+
+            return redirect('/')
+         
+
+    else:
+        mi_formulario = UserEditForm(initial={'username': usuario.username,
+                                     'email': usuario.email,
+                                     'last_name': usuario.last_name,
+                                     'first_name': usuario.first_name})
+        
+    return render(request, 'AppInicio/editar-perfil.html', {'mi_formulario': mi_formulario, 'usuario':usuario})
