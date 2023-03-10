@@ -94,7 +94,9 @@
 		        	<div class="col-md-12">
 		        		<h2>Blog de laboratorio escolar</h2>
 		        		<p>Proyecto final | Python | CoderHouse </p>
+						{% if not user.is_authenticated %}
 		        		<a href="{% url 'registrar' %}" class="large-button white-color">Sos nuevo? Registrate aquí <i class="icon-button fa fa-download"></i></a>
+						{% endif %}
 		        	</div> <!-- /.col-md-12 -->
 		        </div> <!-- /.row -->
 		    </div> <!-- /.container -->
