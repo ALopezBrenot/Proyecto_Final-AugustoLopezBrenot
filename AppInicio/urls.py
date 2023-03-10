@@ -3,6 +3,7 @@
 from django.urls import path
 from AppInicio import views
 from .views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('', views.Inicio, name='inicio' ),
@@ -26,5 +27,10 @@ urlpatterns = [
     path('practicas-nuevo/', PracticasCreate.as_view(), name='practicas-nuevo'),
     path('practicas-editar/<pk>', PracticasUpdate.as_view(), name='practicas-editar'),
     path('practicas-eliminar/<pk>', PracticasDelete.as_view(), name='practicas-eliminar'),
+
+    #Path para Login / Logout
+    path('login/', views.login_request, name='login'),
+    path('registro/', views.register, name='registrar'),
+    path('logout/', LogoutView.as_view(template_name= 'AppInicio/logout.html'), name='logout')
 
 ]

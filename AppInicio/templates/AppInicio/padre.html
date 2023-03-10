@@ -71,6 +71,10 @@
 					            </li>
 					            <li><a href="{% url 'practicas-list' %}">Prácticas</a></li>
 					            <li><a href="{% url 'post-list' %}">Posteos</a></li>
+								<li><a href="{% url 'login' %}">Ingresar</a></li>
+								{% if user.is_authenticated %}
+								<li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+								{% endif %}
 							</ul> <!-- /.sf-menu -->
 						</nav> <!-- /.main-nav -->
 
@@ -90,7 +94,7 @@
 		        	<div class="col-md-12">
 		        		<h2>Blog de laboratorio escolar</h2>
 		        		<p>Proyecto final | Python | CoderHouse </p>
-		        		<a href="#" class="large-button white-color">BOTON <i class="icon-button fa fa-download"></i></a>
+		        		<a href="{% url 'registrar' %}" class="large-button white-color">Sos nuevo? Registrate aquí <i class="icon-button fa fa-download"></i></a>
 		        	</div> <!-- /.col-md-12 -->
 		        </div> <!-- /.row -->
 		    </div> <!-- /.container -->
@@ -122,11 +126,10 @@
                         </div>
                         <hr>
 						<ul class="footer-menu">
-							<li><a href="index.html">REDIRECCIONA</a></li>
-							<li><a href="portfolio.html">REDIRECCIONA</a></li>
-							<li><a href="blog.html">REDIRECCIONA</a></li>
-							<li><a href="archives.html">REDIRECCIONA</a></li>
-							<li><a href="contact.html">REDIRECCIONA</a></li>
+							<li><a href="{% url 'about-me' %}">Acerca de mí</a></li>
+							<li><a href="https://www.institutomurialdo.org/">Página institucional</a></li>
+							<li><a href="{% url 'no-disponible' %}">Redes sociales</a></li>
+							<li><a href="{% url 'no-disponible' %}">LinkedIn</a></li>
 						</ul> <!-- /.footer-menu -->
 					</nav> <!-- /.footer-nav -->
 				</div> <!-- /.col-md-12 -->
