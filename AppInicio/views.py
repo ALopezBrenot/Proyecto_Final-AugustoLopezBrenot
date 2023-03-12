@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from AppInicio.models import *
-from AppInicio.forms import MyUserCreationForm, UserEditForm
+from AppInicio.forms import MyUserCreationForm, UserEditForm, AvatarFormulario
 
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
@@ -174,3 +174,22 @@ def editar_perfil(request):
                                      'first_name': usuario.first_name})
         
     return render(request, 'AppInicio/editar-perfil.html', {'mi_formulario': mi_formulario, 'usuario':usuario})
+
+# Vista para cambiar avatar
+
+@login_required
+def agregar_avatar(request):
+    avatar = request.user.avatar
+    mi_formulario = AvatarFormulario(instance=avatar)
+
+    if request.method == 'POST':
+        mi_formulario = AvatarFormulario(request.POST, request.FILES, instance=avatar)
+        if mi_formulario.is_valid():
+            mi_formulario.save()
+
+            return redirect('/')
+    
+    else:
+        return render(request, 'AppInicio/agregar-avatar.html', {'mi_formulario': mi_formulario})
+    
+

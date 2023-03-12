@@ -28,9 +28,12 @@ urlpatterns = [
     path('practicas-editar/<pk>', PracticasUpdate.as_view(), name='practicas-editar'),
     path('practicas-eliminar/<pk>', PracticasDelete.as_view(), name='practicas-eliminar'),
 
-    #Path para Login / Logout
+    # Path para Login / Logout
     path('login/', views.login_request, name='login'),
     path('registro/', views.register, name='registrar'),
     path('logout/', LogoutView.as_view(template_name= 'AppInicio/logout.html'), name='logout'),
     path('editar-perfil/', editar_perfil, name='editar-perfil'),
+
+    # Path para agregar Avatar
+    path('agregar-avatar/', agregar_avatar, name='agregar-avatar'),
 ]

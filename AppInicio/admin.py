@@ -5,3 +5,4 @@ from AppInicio.models import *
 admin.site.register(Docente)
 admin.site.register(Alumno)
 admin.site.register(Practica)
+admin.site.register(Avatar)

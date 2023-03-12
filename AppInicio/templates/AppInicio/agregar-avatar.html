@@ -1,0 +1,27 @@
+{% extends 'AppInicio/padre.html' %}
+
+{% block title %} Agregar avatar {% endblock %}
+
+{% block contenido %}
+
+<section class="features-icons bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Editar avatar</h1>
+                <h2>Usuario: {{usuario}}</h2>
+                
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                        {{ mi_formulario.as_p }}
+                    
+                    <input type="submit" value="Editar avatar">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
